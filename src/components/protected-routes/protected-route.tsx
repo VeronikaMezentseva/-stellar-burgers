@@ -1,11 +1,11 @@
 import { FC, ReactNode } from 'react';
-import { useSelector } from 'react-redux';
 import { Navigate, useLocation } from 'react-router-dom';
+import { Preloader } from '../ui/preloader';
+import { useSelector } from '../../services/store';
 import {
   selectIsAuthChecked,
   selectUserAuthenticated
-} from '../../Slices/userSlice';
-import { Preloader } from '../ui/preloader';
+} from '../../slices/user-slice';
 
 type ProtectedRouteProps = {
   onlyUnAuth?: boolean;

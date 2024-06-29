@@ -14,7 +14,7 @@ const initialState: TInitialState = {
 
 export const gerOrderByNumber = createAsyncThunk(
   'order/getByNumber',
-  async (orderNumber: number) => getOrderByNumberApi(orderNumber)
+  getOrderByNumberApi
 );
 
 export const orderSlice = createSlice({

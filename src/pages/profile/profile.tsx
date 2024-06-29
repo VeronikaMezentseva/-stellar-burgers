@@ -1,13 +1,12 @@
 import { ProfileUI } from '@ui-pages';
 import { FC, SyntheticEvent, useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectUserData, updateUserDataThunk } from '../../Slices/userSlice';
+import { selectUserData, updateUserDataThunk } from '../../slices/user-slice';
 import { TUser } from '@utils-types';
-import { AppDispatch } from 'src/services/store';
+import { useDispatch, useSelector } from '../../services/store';
 
 export const Profile: FC = () => {
   const userData = useSelector(selectUserData) as TUser;
-  const dispatch = useDispatch<AppDispatch>();
+  const dispatch = useDispatch();
 
   /** TODO: взять переменную из стора */
   const user = {

@@ -2,19 +2,18 @@ import { FC, useEffect, useMemo } from 'react';
 import { Preloader } from '../ui/preloader';
 import { OrderInfoUI } from '../ui/order-info';
 import { TIngredient } from '@utils-types';
-import { useDispatch, useSelector } from 'react-redux';
-import { gerOrderByNumber, selectOrder } from '../../Slices/orderSlice';
 import { useParams } from 'react-router-dom';
-import { AppDispatch } from 'src/services/store';
-import { selectIngredients } from '../../Slices/IngrediensSlice';
+import { useDispatch, useSelector } from '../../services/store';
+import { gerOrderByNumber, selectOrder } from '../../slices/order-slice';
+import { selectIngredients } from '../../slices/Ingredients-slice';
 
 export const OrderInfo: FC = () => {
   /** TODO: взять переменные orderData и ingredients из стора */
-  const dispatch = useDispatch<AppDispatch>();
+  const dispatch = useDispatch();
 
   const orderData = useSelector(selectOrder);
 
-  const ingredients: TIngredient[] = useSelector(selectIngredients);
+  const ingredients = useSelector(selectIngredients);
 
   const orderId = Number(useParams().number);
 

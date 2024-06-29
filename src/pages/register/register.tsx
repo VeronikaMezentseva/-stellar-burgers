@@ -5,28 +5,23 @@ import {
   clearErrors,
   loginUserThunk,
   registerUserThunk,
-  selectRegisterError,
-  selectUserAuthenticated,
-  selectUserData
-} from '../../Slices/userSlice';
-import { useDispatch, useSelector } from 'react-redux';
-import { AppDispatch } from '../../services/store';
-import { Navigate, useNavigate } from 'react-router-dom';
+  selectRegisterError
+} from '../../slices/user-slice';
+import { useDispatch, useSelector } from '../../services/store';
+import { Navigate } from 'react-router-dom';
 
 export const Register: FC = () => {
   const [userName, setUserName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const dispatch = useDispatch<AppDispatch>();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(clearErrors());
   }, []);
 
-  const userAuthenticated = useSelector(selectUserAuthenticated);
   const registerErrorText = useSelector(selectRegisterError);
-  const data = useSelector(selectUserData);
 
   const handleSubmit = (e: SyntheticEvent) => {
     e.preventDefault();

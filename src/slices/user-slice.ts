@@ -31,9 +31,7 @@ const initialState: UserState = {
   registerUserError: ''
 };
 
-export const getUserThunk = createAsyncThunk('user/getUser', async () =>
-  getUserApi()
-);
+export const getUserThunk = createAsyncThunk('user/getUser', getUserApi);
 
 export const checkUserAuth = createAsyncThunk(
   'user/checkUserAuth',
@@ -68,10 +66,7 @@ export const registerUserThunk = createAsyncThunk(
     await registerUserApi({ email, name, password })
 );
 
-export const logoutUserThunk = createAsyncThunk(
-  'user/logout',
-  async () => await logoutApi()
-);
+export const logoutUserThunk = createAsyncThunk('user/logout', logoutApi);
 
 export const updateUserDataThunk = createAsyncThunk(
   'user/updateData',
