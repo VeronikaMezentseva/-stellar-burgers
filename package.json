@@ -29,7 +29,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.23.6",
-    "@babel/eslint-parser": "^7.23.3",
+    "@babel/eslint-parser": "^7.24.7",
     "@babel/preset-env": "^7.23.6",
     "@babel/preset-react": "^7.23.3",
     "@babel/preset-typescript": "^7.23.3",
@@ -95,7 +95,8 @@
   },
   "eslintConfig": {
     "extends": [
-      "plugin:storybook/recommended"
+      "plugin:storybook/recommended",
+      "react-app"
     ]
   }
 }
