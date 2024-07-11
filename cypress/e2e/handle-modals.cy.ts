@@ -1,3 +1,5 @@
+import { testUrl } from "cypress/constants/constants";
+
 function findAndClickOnIngredient() {
   const ingredient = cy.get(
     '[data-cy=ingredientsContainer-643d69a5c3f7b9001cfa0941] > a'
@@ -7,17 +9,17 @@ function findAndClickOnIngredient() {
 
 describe('handle modals', function () {
   this.beforeEach(() => {
-    cy.intercept('GET', `https://norma.nomoreparties.space/api/ingredients`, {
+    cy.intercept('GET', `api/ingredients`, {
       fixture: 'mock-ingredients.json'
     });
-    cy.visit('http://localhost:4000/');
+    cy.visit(testUrl);
   });
 
   it('shoud open ingredient modal', function () {
     findAndClickOnIngredient();
     cy.location('href').should(
       'eq',
-      'http://localhost:4000/ingredients/643d69a5c3f7b9001cfa0941'
+      `${testUrl}ingredients/643d69a5c3f7b9001cfa0941`
     );
 
     const ingredientDetails = cy.get('[data-cy=ingredientDetails]');
@@ -28,6 +30,6 @@ describe('handle modals', function () {
     findAndClickOnIngredient();
     const ingredientDetails = cy.get('[data-cy=modalCloseButton]');
     ingredientDetails.click();
-    cy.location('href').should('eq', 'http://localhost:4000/');
+    cy.location('href').should('eq', testUrl);
   });
 });

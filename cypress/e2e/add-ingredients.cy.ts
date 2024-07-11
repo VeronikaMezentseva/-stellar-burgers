@@ -1,9 +1,11 @@
+import { testUrl } from "cypress/constants/constants";
+
 describe('handle add ingredient', function () {
   this.beforeEach(() => {
-    cy.intercept('GET', `https://norma.nomoreparties.space/api/ingredients`, {
+    cy.intercept('GET', `api/ingredients`, {
       fixture: 'mock-ingredients.json'
     });
-    cy.visit('http://localhost:4000/');
+    cy.visit(testUrl);
   });
 
   it('add ingredient on button click', function () {

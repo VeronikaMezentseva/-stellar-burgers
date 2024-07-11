@@ -1,9 +1,11 @@
+import { testUrl } from "cypress/constants/constants";
+
 describe('get ingredients', function () {
   this.beforeEach(() => {
-    cy.intercept('GET', `https://norma.nomoreparties.space/api/ingredients`, {
+    cy.intercept('GET', `api/ingredients`, {
       fixture: 'mock-ingredients.json'
     });
-    cy.visit('http://localhost:4000/');
+    cy.visit(testUrl);
   });
 
   it('get ingredients request with succsess while visitint page', function () {

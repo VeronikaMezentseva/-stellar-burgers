@@ -1,20 +1,28 @@
+import { testUrl } from "cypress/constants/constants";
+
 describe('handle order', function () {
   this.beforeEach(() => {
-    cy.intercept('POST', `https://norma.nomoreparties.space/api/auth/login`, {
+    cy.intercept('POST', `api/auth/login`, {
       fixture: 'mock-user-data.json'
     });
-    cy.intercept('GET', `https://norma.nomoreparties.space/api/auth/user`, {
+    cy.intercept('GET', `api/auth/user`, {
       fixture: 'mock-user.json'
     });
-    cy.intercept('GET', `https://norma.nomoreparties.space/api/ingredients`, {
+    cy.intercept('GET', `api/ingredients`, {
       fixture: 'mock-ingredients.json'
     });
-    cy.intercept('POST', `https://norma.nomoreparties.space/api/orders`, {
+    cy.intercept('POST', `api/orders`, {
       fixture: 'mock-order.json'
     });
 
     cy.setCookie('accessToken', '123key');
-    cy.visit('http://localhost:4000/');
+    window.localStorage.setItem('key', '123');
+    cy.visit(testUrl);
+  });
+
+  this.afterEach(() => {
+    cy.clearCookie('accessToken');
+    cy.clearLocalStorage('key');
   });
 
   it('burger should build and ordered', function () {
