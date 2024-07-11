@@ -7,7 +7,7 @@ type TInitialState = {
   orderData: null | TOrder;
 };
 
-const initialState: TInitialState = {
+export const initialState: TInitialState = {
   isLoading: false,
   orderData: null
 };

@@ -15,7 +15,7 @@ import {
   ResetPassword
 } from '@pages';
 import { useDispatch } from 'react-redux';
-import { AppDispatch } from 'src/services/store';
+import { AppDispatch } from '../../services/store';
 import { fetchIngredients } from '../../slices/Ingredients-slice';
 import { useEffect } from 'react';
 import { checkUserAuth } from '../../slices/user-slice';

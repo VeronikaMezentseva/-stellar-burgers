@@ -5,7 +5,7 @@ import { IngredientsCategoryUI } from '../ui/ingredients-category';
 import {
   selectAddedBunId,
   selectAddedIngredients
-} from '../../slices/constructorIngredients-slice';
+} from '../../slices/constructor-ingredients-slice';
 import { useSelector } from '../../services/store';
 
 export const IngredientsCategory = forwardRef<

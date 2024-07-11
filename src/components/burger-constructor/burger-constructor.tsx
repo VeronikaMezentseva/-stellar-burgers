@@ -5,7 +5,7 @@ import {
   clearConstructor,
   selectAddedBunDetails,
   selectAddedIngredients
-} from '../../slices/constructorIngredients-slice';
+} from '../../slices/constructor-ingredients-slice';
 import {
   cleanConstructor,
   cleanOrderData,
