@@ -21,7 +21,7 @@ export interface UserState {
   registerUserError: string | undefined;
 }
 
-const initialState: UserState = {
+export const initialState: UserState = {
   isAuthChecked: false,
   isAuthenticated: false,
   isLoading: false,

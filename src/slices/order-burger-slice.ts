@@ -8,7 +8,7 @@ type TState = {
   orderRequest: boolean;
 };
 
-const initialState: TState = {
+export const initialState: TState = {
   ingredients: [],
   orderData: null,
   orderRequest: false

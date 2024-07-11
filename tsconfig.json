@@ -17,21 +17,20 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true,
+    "noEmit": false,
     "jsx": "react-jsx",
+    "types": ["node", "jest"],
+    "baseUrl": ".",
     "paths": {
-      "@pages": ["./src/pages"],
-      "@components": ["./src/components"],
-      "@ui": ["./src/components/ui"],
-      "@ui-pages": ["./src/components/ui/pages"],
-      "@utils-types": ["./src/utils/types"],
-      "@api": ["./src/utils/burger-api.ts"],
-      "@slices": ["./src/services/slices"],
-      "@selectors": ["./src/services/selectors"]
+      "@pages": ["src/pages"],
+      "@components": ["src/components"],
+      "@ui": ["src/components/ui"],
+      "@ui-pages": ["src/components/ui/pages"],
+      "@utils-types": ["src/utils/types"],
+      "@api": ["src/utils/burger-api.ts"],
+      "@slices": ["src/services/slices"],
+      "@selectors": ["src/services/selectors"]
     }
-
   },
-  "include": [
-    "src"
-  ]
+  "include": ["src", "__jest__/__tests__/constructorIngredients-slice", "__jest__/__tests__/rootReducer.test.ts"]
 }
